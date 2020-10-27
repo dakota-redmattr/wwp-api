@@ -147,6 +147,7 @@ STATICFILES_DIRS = [
 
 STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 STATIC_URL = "https://%s/%s/" % (AWS_S3_CUSTOM_DOMAIN, AWS_LOCATION)
+DEFAULT_FILE_STORAGE = 'wicked_api.storages.MediaStore'
 
 MEDIA_URL = "/media/images/"
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media/images')
