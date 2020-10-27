@@ -84,8 +84,12 @@ WSGI_APPLICATION = 'wicked_api.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'database-2',
+        'USER': 'postgres'
+        'PASSWORD': secure_data()["RDS_DB_PASSWORD"],
+        "HOST": "database-2.cqdacdsxpdne.us-east-1.rds.amazonaws.com",
+        "PORT": '5432',
     }
 }
 
