@@ -24,7 +24,7 @@ print("Base Dir: " + f'{BASE_DIR}')
 SECRET_KEY = '3=6(3(olo3(&&(^&803%1!k#jl^!z=2g)%6feosv3ymu+ulbzk'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ["*"]
 
@@ -127,9 +127,24 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
-STATIC_URL = '/static/'
-STATIC_ROOT = '/home/ubuntu/wwp-api/static/'
-STATICFILES_DIRS = (os.path.join('static/static_files'),)
+# STATIC_URL = '/static/'
+# STATIC_ROOT = '/home/ubuntu/wwp-api/static/'
+# STATICFILES_DIRS = (os.path.join('static/static_files'),)
+
+AWS_ACCESS_KEY_ID = "AKIA5XZLAMZH66HSGNFK"
+AWS_SECRET_ACCESS_KEY = "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"
+AWS_STORAGE_BUCKET_NAME = "wwp-backend"
+AWS_S3_CUSTOM_DOMAIN = '%s.s3.amazonaws.com' % AWS_STORAGE_BUCKET_NAME
+AWS_S3_OBJECT_PARAMETERS = {'CacheControl': 'max-age=86400'}
+AWS_DEFAULT_ACL = None
+
+AWS_LOCATION = 'static'
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'static')
+]
+
+STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+STATIC_URL = "https://%s/%s/" % (AWS_S3_CUSTOM_DOMAIN, AWS_LOCATION)
 
 MEDIA_URL = "/media/images/"
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media/images')
