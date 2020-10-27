@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 
 import os
 from pathlib import Path
+from .secure_data import secure_data
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -21,7 +22,7 @@ print("Base Dir: " + f'{BASE_DIR}')
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '3=6(3(olo3(&&(^&803%1!k#jl^!z=2g)%6feosv3ymu+ulbzk'
+SECRET_KEY = secure_data()["DJANGO_SECRET_KEY"]
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
@@ -70,6 +71,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'API.secure-data.secure_data'
             ],
         },
     },
@@ -131,8 +133,8 @@ USE_TZ = True
 # STATIC_ROOT = '/home/ubuntu/wwp-api/static/'
 # STATICFILES_DIRS = (os.path.join('static/static_files'),)
 
-AWS_ACCESS_KEY_ID = "AKIA5XZLAMZH66HSGNFK"
-AWS_SECRET_ACCESS_KEY = "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"
+AWS_ACCESS_KEY_ID = secure_data()["AWS_ACCESS_KEY_ID"]
+AWS_SECRET_ACCESS_KEY = secure_data()["AWS_SECRET_ACCESS_KEY"]
 AWS_STORAGE_BUCKET_NAME = "wwp-backend"
 AWS_S3_CUSTOM_DOMAIN = '%s.s3.amazonaws.com' % AWS_STORAGE_BUCKET_NAME
 AWS_S3_OBJECT_PARAMETERS = {'CacheControl': 'max-age=86400'}
