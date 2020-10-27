@@ -129,7 +129,7 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATIC_ROOT = '/home/ubuntu/wwp-api/static/'
-STATICFILES_DIRS = (os.path.join('static'),)
+STATICFILES_DIRS = (os.path.join('static_files'),)
 
 MEDIA_URL = "/media/images/"
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media/images')
