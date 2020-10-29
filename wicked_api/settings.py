@@ -88,7 +88,7 @@ DATABASES = {
         'NAME': 'wwp_api_db',
         'USER': 'postgres'
         'PASSWORD': secure_data()["RDS_DB_PASSWORD"],
-        "HOST": "wwp-backend-db.cqdacdsxpdne.us-east-1.rds.amazonaws.com",
+        "HOST": 'wwp-backend-db.cqdacdsxpdne.us-east-1.rds.amazonaws.com',
         "PORT": '5432',
     }
 }
