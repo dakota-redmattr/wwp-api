@@ -87,7 +87,7 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'wwp_api_db',
-        'USER': 'postgres'
+        'USER': 'postgres',
         'PASSWORD': secure_data()["RDS_DB_PASSWORD"],
         "HOST": 'wwp-backend-db.cqdacdsxpdne.us-east-1.rds.amazonaws.com',
         "PORT": '5432',
