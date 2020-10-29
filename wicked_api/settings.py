@@ -85,7 +85,7 @@ WSGI_APPLICATION = 'wicked_api.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'database-2',
+        'NAME': 'wwp_api_db',
         'USER': 'postgres'
         'PASSWORD': secure_data()["RDS_DB_PASSWORD"],
         "HOST": "database-2.cqdacdsxpdne.us-east-1.rds.amazonaws.com",
