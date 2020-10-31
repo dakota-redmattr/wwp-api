@@ -21,6 +21,7 @@ class FoodItem(models.Model):
     price = models.FloatField(null=True)
     category = models.ForeignKey(
         FoodCategory, related_name="items", on_delete=models.CASCADE)
+    order_index = models.IntegerField(null=True)
 
     class Meta:
         verbose_name = "Food Item"
