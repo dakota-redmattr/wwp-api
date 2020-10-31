@@ -19,7 +19,7 @@ class FoodCategorySerializer(serializers.ModelSerializer):
 
     class Meta:
         model = FoodCategory
-        fields = ['name', 'image', 'slug', 'items']
+        fields = ['name', 'image', 'slug', 'order_index', 'items']
 
 
 # Food Category Serializer
