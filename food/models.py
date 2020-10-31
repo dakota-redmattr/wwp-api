@@ -5,6 +5,7 @@ class FoodCategory(models.Model):
     name = models.CharField(max_length=100)
     image = models.ImageField()
     slug = models.SlugField()
+    order_index = models.IntegerField(null=True)
 
     class Meta:
         verbose_name = "Food Category"
