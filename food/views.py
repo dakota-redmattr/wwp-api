@@ -1,7 +1,12 @@
 from django.shortcuts import render
-from .models import FoodCategory, FoodItem
+from .models import FoodCategory, FoodItem, DrinkCategory, DrinkItem
 from rest_framework.generics import ListAPIView
-from .serializers import FoodCategorySerializer, FoodCategoryDetailSerializer, FoodItemSerializer
+from .serializers import FoodCategorySerializer, FoodCategoryDetailSerializer, FoodItemSerializer, DrinkCategorySerializer, DrinkItemSerializer
+
+
+class DrinkCategoryAPIView(ListAPIView):
+    queryset = DrinkCategory.objects.all()
+    serializer_class = DrinkCategorySerializer
 
 
 class FoodCategoryAPIView(ListAPIView):
